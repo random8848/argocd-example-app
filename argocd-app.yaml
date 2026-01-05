@@ -1,0 +1,15 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: guestbook-multi-cluster
+  namespace: argocd
+spec:
+  destination:
+    namespace: default
+    server: https://karmada-apiserver.karmada-system.svc.cluster.local:5443
+  source:
+    path: '.'
+    repoURL: https://github.com/random8848/argocd-example-app.git
+    targetRevision: HEAD
+  sources: []
+  project: default
